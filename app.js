@@ -39,7 +39,7 @@ app.get("/", async (req, res) => {
     } else {
       visitor = new Visitor({ name, count: 1 });
     }
-    await visitor.save((err, visitor) => {});
+    await visitor.save();
   }
 
   const visitors = await Visitor.find();

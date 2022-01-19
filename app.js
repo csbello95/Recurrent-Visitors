@@ -41,6 +41,7 @@ app.get("/", async (req, res) => {
     }
     await visitor.save((err, visitor) => {});
   }
+
   const visitors = await Visitor.find();
   let table = `<table><thead><tr><th>Id</th><th>Name</th><th>Visits</th></tr></thead><tbody>`;
   visitors.forEach((visitor) => {
@@ -49,4 +50,5 @@ app.get("/", async (req, res) => {
   table += `</tbody></table>`;
   res.send(table);
 });
+
 app.listen(3000, () => console.log("Listening on port 3000!"));

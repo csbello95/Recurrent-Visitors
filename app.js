@@ -42,11 +42,11 @@ app.get("/", async (req, res) => {
     await visitor.save((err, visitor) => {});
   }
   const visitors = await Visitor.find();
-  let table = `<table><tr><th>ID</th><th>Name</th><th>Visits</th></tr>`;
+  let table = `<table><thead><tr><th>ID</th><th>Name</th><th>Visits</th></tr></thead>`;
   visitors.forEach((visitor) => {
-    table += `<tr><td>${visitor._id}</td><td>${visitor.name}</td><td>${visitor.count}</td></tr>`;
+    table += `<tbody><tr><td>${visitor._id}</td><td>${visitor.name}</td><td>${visitor.count}</td></tr>`;
   });
-  table += `</table>`;
+  table += `</tbody></table>`;
   res.send(table);
 });
 app.listen(3000, () => console.log("Listening on port 3000!"));
